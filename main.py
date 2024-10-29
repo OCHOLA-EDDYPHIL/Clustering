@@ -5,9 +5,6 @@ from scipy.cluster.hierarchy import dendrogram, linkage
 
 
 def main():
-    """
-    Main function to load data, preprocess it, and plot dendrograms for hierarchical clustering.
-    """
     # Load the dataset
     file_path = 'Dataset Group 1.xlsx'
     xls = pd.ExcelFile(file_path)
@@ -31,16 +28,6 @@ def main():
 
 
 def plot_dendrogram(data, method):
-    """
-    Plots a dendrogram for the given data using the specified linkage method.
-
-    Parameters:
-    data (ndarray): The data to be clustered.
-    method (str): The linkage method to be used ('single', 'complete', 'average').
-
-    Returns:
-    None
-    """
     plt.figure(figsize=(10, 6))
     linkage_matrix = linkage(data, method=method)
     dendrogram(linkage_matrix, truncate_mode='lastp', p=10, leaf_rotation=45, leaf_font_size=10)
